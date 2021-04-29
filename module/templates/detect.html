@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Home page{% endblock %}
+
+{% block body %}
+  <img src="{{url_for('static',filename = filename)}}" class="rounded mx-auto d-block" >
+  <br>
+
+  <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin: auto">
+    <form action="/">
+      <button type="submit" class="btn btn-secondary"> Click here to perform another edge detection</button>
+    </form>
+
+  </div>
+
+{% endblock %}
