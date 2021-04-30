@@ -20,7 +20,7 @@ def upload_image():
 
             img_edges = det_edge(full_filename)
             cv2.imwrite(os.path.join(app.config['UPLOAD_FOLDER'],filename), img_edges)
-            return render_template("detect.html", form=form, filename=filename)
+            return render_template("detect.html", filename=filename)
 
     return render_template("home.html",form=form)
 
