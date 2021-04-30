@@ -2,8 +2,9 @@ import os
 import cv2
 from flask import Flask
 
-app = Flask(__name__, static_folder=os.path.join(os.getcwd(),'static/images'))
-UPLOAD_FOLDER = os.path.join('static','images')
+UPLOAD_FOLDER = os.path.join(os.getcwd(),'static/images')
+app = Flask(__name__, static_folder=UPLOAD_FOLDER)
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY']='a58d2762c5d24aee56d3621b'
 
