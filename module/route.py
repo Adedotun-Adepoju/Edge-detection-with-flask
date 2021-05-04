@@ -1,6 +1,7 @@
 import os
 import cv2
-from module import app, det_edge
+from module import app, det_edge,db
+from module.models import Image
 from flask import render_template, redirect, url_for, request, send_from_directory,flash
 from module.forms import ImageForm
 from werkzeug.utils import secure_filename
@@ -15,6 +16,9 @@ def upload_image():
             img = form.image.data
 
             filename = secure_filename(img.filename)
+            new_filename = Image(filename)
+            db.session.add(new_filename)
+            db.session.commit()
             img.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             full_filename = os.path.join(app.config['UPLOAD_FOLDER'], filename)
 
